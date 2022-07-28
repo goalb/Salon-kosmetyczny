@@ -4,10 +4,11 @@ from django.db import models
 
 
 class User(models.Model):
+    login = models.CharField('login', max_length=30)
     email = models.EmailField(max_length=200)
     first_name = models.CharField('first_name', max_length=50, null=True)
     last_name = models.CharField('last_name', max_length=60, null=True)
     registration_date = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return self.email
+        return self.login

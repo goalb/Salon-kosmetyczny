@@ -60,6 +60,7 @@ TEMPLATES = [
         'DIRS': [
             BASE_DIR / 'base/templates/base',
             BASE_DIR / 'bookings/templates/bookings',
+            BASE_DIR / 'users/templates/users',
         ],
         'APP_DIRS': True,
         'OPTIONS': {

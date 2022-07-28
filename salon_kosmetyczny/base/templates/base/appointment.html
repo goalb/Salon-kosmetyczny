@@ -1,6 +1,10 @@
 {% extends 'base/main.html' %}
 
 {% block content %}
+{% if user.is_authenticated %}
 <h1>appointment</h1>
 
+{% else %}
+no
+{% endif %}
 {% endblock content %}

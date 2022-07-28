@@ -17,7 +17,7 @@ def login_user(request):
                 return redirect('home')
         else:
         # Return an 'invalid login' error message.
-            messages.success(request, "Username or password is incorrect")
+            messages.success(request, "Email or password is incorrect")
             return redirect('login')
     else:
         return render(request, 'registration/login.html', {})
