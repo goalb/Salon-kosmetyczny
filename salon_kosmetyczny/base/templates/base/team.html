@@ -1,5 +1,18 @@
 {% extends 'base/main.html' %}
 
 {% block content %}
-<h1>team</h1>
+{% csrf_token %}
+{% for teammate in teammates %}
+    <div class="container">
+        <div class="row">{{ teammate }}</div>
+        <div class="col">
+            <img src="{{ teammate.image.url }}">
+        </div>
+    </div>
+
+{% endfor %}
+
+
+<a href="{% url 'add-team' %}">Add new teammate</a>
+
 {% endblock content %}

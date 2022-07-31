@@ -14,7 +14,10 @@ urlpatterns = [
     path('reviews/', views.reviews, name="reviews"),
     path('sale/', views.sale, name="sale"),
     path('training/', views.training, name="training"),
+    # Team stuff
     path('team/', views.team, name="team"),
+    path('add_team/', views.add_team, name="add-team"),
+
     path('contact/', views.contact, name="contact"),
     path('appointment/', views.appointment, name="appointment"),
 

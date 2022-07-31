@@ -12,3 +12,12 @@ class User(models.Model):
 
     def __str__(self):
         return self.login
+
+
+class Team(models.Model):
+    name = models.CharField(max_length=200)
+    image = models.ImageField(null=True, blank=True, upload_to='images/team/')
+    description = models.TextField(max_length=1000, null=True, blank=True)
+
+    def __str__(self):
+        return self.name
