@@ -9,6 +9,7 @@ class User(models.Model):
     first_name = models.CharField('first_name', max_length=50, null=True)
     last_name = models.CharField('last_name', max_length=60, null=True)
     registration_date = models.DateTimeField(auto_now_add=True)
+    admin_status = models.BooleanField(default=False)
 
     def __str__(self):
         return self.login
