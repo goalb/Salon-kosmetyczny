@@ -2,8 +2,17 @@
 
 {% block content %}
 {% if user.is_authenticated %}
-<h1>appointment</h1>
 
+    {% if submitted %}
+        Appointment booked Successfully!
+        {% else %}
+            <form action="" method="POST">
+                {% csrf_token %}
+
+                {{ form.as_p }}
+                <input type="submit" value="Submit" class="btn btn-secondary">
+            </form>
+    {% endif %}
 {% else %}
 no
 {% endif %}

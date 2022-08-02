@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponseRedirect, HttpResponse
 from .models import Team
-from .forms import TeamForm
+from .forms import TeamForm, AppointmentForm
 from django.contrib import messages
 
 
@@ -59,5 +59,16 @@ def contact(request):
 
 
 def appointment(request):
-    return render(request, 'appointment.html', {})
-# End navbar
+    submitted = False
+    if request.method == "POST":
+        form = AppointmentForm(request.POST)
+        if form.is_valid():
+            # appointment.client = request.user.id
+            form.save()
+            return HttpResponseRedirect('/appointment?submitted=True')
+    else:
+        form = AppointmentForm
+        if 'submitted' in request.GET:
+            submitted = True
+    return render(request, 'base/appointment.html', {'form': form, 'submitted': submitted})
+
