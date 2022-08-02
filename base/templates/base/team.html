@@ -1,0 +1,25 @@
+{% extends 'base/main.html' %}
+
+{% block content %}
+{% csrf_token %}
+{% for teammate in teammates %}
+
+<div class="card mt-4" style="width: 100%">
+  <div class="row">
+    <div class="col-md-4">
+      <img src="{{ teammate.image.url }}" class="card-img m-2" alt="Card image">
+    </div>
+    <div class="col-md-8">
+      <h2 class="card-title mt-2"> {{ teammate }}</h2>
+      <p class="card-text">{{ teammate.description }}</p>
+    </div>
+    <div class="card-footer m-3">
+      <center><a href="#" class="btn btn-primary">Book an appointment</a></center>
+    </div>
+  </div>
+</div>
+{% endfor %}
+
+<a href="{% url 'add-team' %}">Add new teammate</a>
+
+{% endblock content %}

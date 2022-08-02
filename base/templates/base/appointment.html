@@ -1,0 +1,19 @@
+{% extends 'base/main.html' %}
+
+{% block content %}
+{% if user.is_authenticated %}
+
+    {% if submitted %}
+        Appointment booked Successfully!
+        {% else %}
+            <form action="" method="POST">
+                {% csrf_token %}
+
+                {{ form.as_p }}
+                <input type="submit" value="Submit" class="btn btn-secondary">
+            </form>
+    {% endif %}
+{% else %}
+no
+{% endif %}
+{% endblock content %}
