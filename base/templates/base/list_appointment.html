@@ -1,0 +1,11 @@
+{% extends 'base/main.html' %}
+
+{% block content %}
+<h1>Show</h1>
+
+    {% for appointment in show_appointment %}
+        <a href="{% url 'show_appointment' appointment.id %}">{{ appointment }} - {{ appointment.date }}</a>
+        <br>
+    {% endfor %}
+
+{% endblock content %}

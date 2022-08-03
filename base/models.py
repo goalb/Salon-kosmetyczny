@@ -26,7 +26,7 @@ class Team(models.Model):
 
 
 class Appointment(models.Model):
-    client = models.IntegerField(User, blank=True, null=True)
+    client = models.IntegerField(blank=True, null=True)
     worker = models.ForeignKey(Team, blank=True, null=True, on_delete=models.CASCADE, limit_choices_to={'admin_status': True}, related_name='worker_name')
     date = models.DateTimeField('Appointment Date')
     description = models.TextField(blank=True, null=True)

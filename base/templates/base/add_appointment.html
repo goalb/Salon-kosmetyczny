@@ -1,0 +1,24 @@
+{% extends 'base/main.html' %}
+
+{% block content %}
+{% if user.is_authenticated %}
+
+    {% if submitted %}
+    <center><h2>Appointment booked Successfully!</h2></center>
+        {% else %}
+            <div class="card">
+                <div class="card-header">Appointment</div>
+                <div class="card-body">
+                    <form action="" method="POST">
+                        {% csrf_token %}
+
+                        {{ form.as_p }}
+                        <input type="submit" value="Submit" class="btn btn-secondary">
+                    </form>
+                </div>
+            </div>
+    {% endif %}
+{% else %}
+no
+{% endif %}
+{% endblock content %}
